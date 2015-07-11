@@ -1,4 +1,4 @@
-function shortcut(mode)
+function shortcuts(mode)
 %ML.Project.rm Remove project
 %   P = ML.PROJECT.RM(PNAME) Removes the project PNAME from the project.
 %   list.
