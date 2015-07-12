@@ -1,39 +1,24 @@
-function out = Projects(varargin)
+function out = projects(varargin)
 %ML.projects MLab projects command line interface
-%   ML.PROJECTS Starts the MLab projects command-line interface.
+%   ML.projects Starts the MLab projects command-line interface.
 %
-%   See also .
+%   See also
 
 % === Input variables =====================================================
 
-in = inputParser;
-in.addOptional('mode', 'default', @ischar);
-
-in.parse(varargin{:});
-in = in.Results;
+in = ML.Input;
+in.clc(true) = @islogical;
+in.mode('default') = @ischar;
+in = +in;
 
 % =========================================================================
-
-% --- Upgrade -------------------------------------------------------------
-
-if exist([prefdir filesep 'MLab_projects.mat'], 'file');
-
-    prev = load([prefdir filesep 'MLab_projects.mat']);
-    new = struct();
-    new.Projects = prev.projects;
-    new.Toolkits = struct();
-    save([prefdir filesep 'MLab_Projects.mat'], '-struct', 'new');
-    delete([prefdir filesep 'MLab_projects.mat']);
-
-end
-
-% -------------------------------------------------------------------------
 
 switch in.mode
     
     case 'default'
         
-        clc
+        if in.clc, clc; end
+        
         C = {'<strong>Projects</strong> (<a href="matlab:ML.Projects.new(''project''); ML.Projects;">new</a>)', ...
              '<strong>Toolkits</strong> (<a href="matlab:ML.Projects.new(''toolkit''); ML.Projects;">new</a>)'};
         
@@ -74,7 +59,7 @@ switch in.mode
 
     case 'force'
         
-        clc
+        if in.clc, clc; end
         
         while true
             
