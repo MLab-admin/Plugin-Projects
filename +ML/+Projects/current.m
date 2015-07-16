@@ -8,8 +8,5 @@ function [P, T] = current()
 %   format.
 %
 %   See also ML.Projects, ML.Projects.select.
-%
-%   Reference page in Help browser: <a href="matlab:doc ML.Project.get">doc ML.Project.get</a>
-%   <a href="matlab:doc ML">MLab documentation</a>
 
 [P, T] = ML.Projects.select();
