@@ -19,8 +19,8 @@ switch in.mode
         
         if in.clc, clc; end
         
-        C = {'<strong>Projects</strong> (<a href="matlab:ML.Projects.new(''project''); ML.Projects;">new</a>)', ...
-             '<strong>Toolkits</strong> (<a href="matlab:ML.Projects.new(''toolkit''); ML.Projects;">new</a>)'};
+        C = {'<strong>Projects</strong> (<a href="matlab:ML.Projects.new(''project''); ML.projects;">new</a>)', ...
+             '<strong>Toolkits</strong> (<a href="matlab:ML.Projects.new(''toolkit''); ML.projects;">new</a>)'};
         
         % --- List projects and toolkits
         P = ML.Projects.list;
@@ -35,9 +35,9 @@ switch in.mode
             fp = fieldnames(P.Projects);
             for i = 1:numel(fp)
                 if strcmp(cP.name, fp{i})
-                    C{i+1,1} = sprintf(' %s %s [<a href="matlab:ML.Projects.select(''Project'', ''%s'', ''select'', false); ML.Projects;">Unselect</a> | <a href="matlab:ML.Projects.remove(''Project'', ''%s''); ML.Projects;">Remove</a>]', char(8594), fp{i}, fp{i}, fp{i});
+                    C{i+1,1} = sprintf(' %s %s [<a href="matlab:ML.Projects.select(''Project'', ''%s'', ''select'', false); ML.projects;">Unselect</a> | <a href="matlab:ML.Projects.remove(''Project'', ''%s''); ML.projects;">Remove</a>]', char(8594), fp{i}, fp{i}, fp{i});
                 else
-                    C{i+1,1} = sprintf('<a href="matlab:ML.Projects.select(''Project'', ''%s''); ML.Projects;">%s</a>', fp{i}, fp{i});
+                    C{i+1,1} = sprintf('<a href="matlab:ML.Projects.select(''Project'', ''%s''); ML.projects;">%s</a>', fp{i}, fp{i});
                 end
             end
         end
@@ -47,9 +47,9 @@ switch in.mode
             ft = fieldnames(P.Toolkits);
             for i = 1:numel(ft)
                 if ismember(ft{i}, {cT.name})
-                    C{i+1,2} = sprintf(' %s %s [<a href="matlab:ML.Projects.select(''Toolkit'', ''%s'', ''select'', false); ML.Projects;">Unselect</a> | <a href="matlab:ML.Projects.remove(''Toolkit'', ''%s''); ML.Projects;">Remove</a>]', char(8594), ft{i}, ft{i}, ft{i});
+                    C{i+1,2} = sprintf(' %s %s [<a href="matlab:ML.Projects.select(''Toolkit'', ''%s'', ''select'', false); ML.projects;">Unselect</a> | <a href="matlab:ML.Projects.remove(''Toolkit'', ''%s''); ML.projects;">Remove</a>]', char(8594), ft{i}, ft{i}, ft{i});
                 else
-                    C{i+1,2} = sprintf('<a href="matlab:ML.Projects.select(''Toolkit'', ''%s''); ML.Projects;">%s</a>', ft{i}, ft{i});
+                    C{i+1,2} = sprintf('<a href="matlab:ML.Projects.select(''Toolkit'', ''%s''); ML.projects;">%s</a>', ft{i}, ft{i});
                 end
             end
         end
